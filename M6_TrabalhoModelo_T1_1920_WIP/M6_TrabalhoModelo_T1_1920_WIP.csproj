@@ -68,12 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Alunos\adicionar.aspx" />
+    <Content Include="Alunos\gerir.aspx" />
+    <Content Include="Alunos\Pesquisar.aspx" />
     <Content Include="App_Data\bd.mdf" />
     <Content Include="App_Data\bd_log.ldf">
       <DependentUpon>bd.mdf</DependentUpon>
     </Content>
     <Content Include="CSS\bootstrap.min.css" />
     <Content Include="CSS\css.css" />
+    <Content Include="Disciplinas\adicionar.aspx" />
+    <Content Include="Disciplinas\gerir.aspx" />
+    <Content Include="Disciplinas\pesquisar.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="Js\bootstrap.min.js" />
@@ -89,6 +94,41 @@
     </Compile>
     <Compile Include="Alunos\adicionar.aspx.designer.cs">
       <DependentUpon>adicionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alunos\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alunos\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alunos\Pesquisar.aspx.cs">
+      <DependentUpon>Pesquisar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alunos\Pesquisar.aspx.designer.cs">
+      <DependentUpon>Pesquisar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Disciplinas\adicionar.aspx.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Disciplinas\adicionar.aspx.designer.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Disciplinas\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Disciplinas\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Disciplinas\pesquisar.aspx.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Disciplinas\pesquisar.aspx.designer.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -113,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Consultas\" />
-    <Folder Include="Disciplinas\" />
     <Folder Include="Imagens\" />
     <Folder Include="Models\" />
     <Folder Include="Notas\" />
