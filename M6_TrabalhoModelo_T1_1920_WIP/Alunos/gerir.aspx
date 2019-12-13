@@ -69,14 +69,14 @@
             <asp:GridView CssClass="table" PageSize="20" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="nprocesso" DataSourceID="SqlAlunos" AllowPaging="True" AllowSorting="True">
                 <Columns>
                     <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"></asp:CommandField>
-                    <asp:BoundField DataField="nprocesso" HeaderText="nprocesso" ReadOnly="True" InsertVisible="False" SortExpression="nprocesso"></asp:BoundField>
-                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
-                    <asp:BoundField DataField="data_nascimento" HeaderText="data_nascimento" SortExpression="data_nascimento"></asp:BoundField>
-                    <asp:BoundField DataField="genero" HeaderText="genero" SortExpression="genero"></asp:BoundField>
-                    <asp:BoundField DataField="morada" HeaderText="morada" SortExpression="morada"></asp:BoundField>
-                    <asp:BoundField DataField="cp" HeaderText="cp" SortExpression="cp"></asp:BoundField>
-                    <asp:BoundField DataField="localidade" HeaderText="localidade" SortExpression="localidade"></asp:BoundField>
-                    <asp:BoundField DataField="email" HeaderText="email" SortExpression="email"></asp:BoundField>
+                    <asp:BoundField DataField="nprocesso" HeaderText="Nº processo" ReadOnly="True" InsertVisible="False" SortExpression="nprocesso"></asp:BoundField>
+                    <asp:BoundField DataField="nome" HeaderText="Nome" SortExpression="nome"></asp:BoundField>
+                    <asp:BoundField DataField="data_nascimento" DataFormatString="{0: dd-MM-yyyy}" HeaderText="Data nascimento" SortExpression="data_nascimento"></asp:BoundField>
+                    <asp:BoundField DataField="genero" HeaderText="Género" SortExpression="genero"></asp:BoundField>
+                    <asp:BoundField DataField="morada" HeaderText="Morada" SortExpression="morada"></asp:BoundField>
+                    <asp:BoundField DataField="cp" HeaderText="Cód Postal" SortExpression="cp"></asp:BoundField>
+                    <asp:BoundField DataField="localidade" HeaderText="Localidade" SortExpression="localidade"></asp:BoundField>
+                    <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email"></asp:BoundField>
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' DeleteCommand="DELETE FROM alunos WHERE (nprocesso = @nprocesso)" SelectCommand="select * from alunos" UpdateCommand="UPDATE alunos SET nome = @nome, data_nascimento = @data_nascimento, genero = @genero, morada = @morada, cp = @cp, localidade = @localidade, email = @email WHERE (nprocesso = @nprocesso)">

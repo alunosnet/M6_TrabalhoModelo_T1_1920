@@ -66,9 +66,9 @@
     <form id="form1" runat="server">
         <div class="container">
             <h1>Adicionar disciplina</h1>
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="codigo" DataSourceID="SqlDisciplinas">
+            <asp:FormView Width="100%" ID="FormView1" runat="server" DataKeyNames="codigo" DataSourceID="SqlDisciplinas">
                 <EmptyDataTemplate>
-                    <asp:LinkButton runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
+                    <asp:LinkButton CssClass="btn btn-lg btn-danger" runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
                 </EmptyDataTemplate>
                 <EditItemTemplate>
                     codigo:
@@ -82,13 +82,13 @@
                     <asp:LinkButton runat="server" Text="Update" CommandName="Update" ID="UpdateButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" ID="UpdateCancelButton" CausesValidation="False" />
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    nome:
-                    <asp:TextBox Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" /><br />
-                    nr_modulos:
-                    <asp:TextBox Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosTextBox" /><br />
-                    ano_escolaridade:
-                    <asp:TextBox Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeTextBox" /><br />
-                    <asp:LinkButton runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
+                    Nome:
+                    <asp:TextBox CssClass="form-control" Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" /><br />
+                    Nº Módulos:
+                    <asp:TextBox CssClass="form-control" Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosTextBox" /><br />
+                    Ano Escolaridade:
+                    <asp:TextBox CssClass="form-control" Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeTextBox" /><br />
+                    <asp:LinkButton CssClass="btn btn-lg btn-danger" runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton CssClass="btn btn-lg btn-info" runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
                 </InsertItemTemplate>
                 <ItemTemplate>
                     codigo:
@@ -99,7 +99,7 @@
                     <asp:Label Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosLabel" /><br />
                     ano_escolaridade:
                     <asp:Label Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeLabel" /><br />
-                    <asp:LinkButton runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
+                    <asp:LinkButton CssClass="btn btn-lg btn-danger" runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
                 </ItemTemplate>
             </asp:FormView>
             <asp:SqlDataSource runat="server" ID="SqlDisciplinas" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' InsertCommand="INSERT INTO disciplinas(nome, nr_modulos, ano_escolaridade) VALUES (@nome, @nr_modulos, @ano_escolaridade)" SelectCommand="select * from disciplinas">

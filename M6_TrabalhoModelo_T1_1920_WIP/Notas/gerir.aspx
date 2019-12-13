@@ -65,14 +65,14 @@
     <!--Menu-->
     <form id="form1" runat="server">
         <div class="container">
-            <asp:GridView runat="server" ID="GV1" AutoGenerateColumns="False" DataKeyNames="nr_nota" DataSourceID="SqlNotas" AllowSorting="True" AllowPaging="True">
+            <asp:GridView CssClass="table" runat="server" ID="GV1" AutoGenerateColumns="False" DataKeyNames="nr_nota" DataSourceID="SqlNotas" AllowSorting="True" AllowPaging="True">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"></asp:CommandField>
                     <asp:BoundField DataField="nr_nota" HeaderText="nr_nota" ReadOnly="True" InsertVisible="False" SortExpression="nr_nota"></asp:BoundField>
-                    <asp:BoundField DataField="nprocesso" HeaderText="nprocesso" SortExpression="nprocesso"></asp:BoundField>
-                    <asp:BoundField DataField="codigo_disciplina" HeaderText="codigo_disciplina" SortExpression="codigo_disciplina"></asp:BoundField>
-                    <asp:BoundField DataField="data_nota" HeaderText="data_nota" SortExpression="data_nota"></asp:BoundField>
-                    <asp:BoundField DataField="nr_modulo" HeaderText="nr_modulo" SortExpression="nr_modulo"></asp:BoundField>
+                    <asp:BoundField DataField="nprocesso" HeaderText="Nº processo" SortExpression="nprocesso"></asp:BoundField>
+                    <asp:BoundField DataField="codigo_disciplina" HeaderText="Código disciplina" SortExpression="codigo_disciplina"></asp:BoundField>
+                    <asp:BoundField DataField="data_nota" HeaderText="Data nota" DataFormatString="{0:dd-MM-yyyy}" SortExpression="data_nota"></asp:BoundField>
+                    <asp:BoundField DataField="nr_modulo" HeaderText="nº modulo" SortExpression="nr_modulo"></asp:BoundField>
                     <asp:BoundField DataField="nota" HeaderText="nota" SortExpression="nota"></asp:BoundField>
                 </Columns>
             </asp:GridView>

@@ -66,13 +66,13 @@
     <form id="form1" runat="server">
         <div class="container">
             <h1>Gerir disciplinas</h1>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo" DataSourceID="SqlDisciplinas" AllowPaging="True" AllowSorting="True">
+            <asp:GridView CssClass="table table-borderless" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo" DataSourceID="SqlDisciplinas" AllowPaging="True" AllowSorting="True">
                 <Columns>
                     <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"></asp:CommandField>
-                    <asp:BoundField DataField="codigo" HeaderText="codigo" ReadOnly="True" InsertVisible="False" SortExpression="codigo"></asp:BoundField>
-                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
-                    <asp:BoundField DataField="nr_modulos" HeaderText="nr_modulos" SortExpression="nr_modulos"></asp:BoundField>
-                    <asp:BoundField DataField="ano_escolaridade" HeaderText="ano_escolaridade" SortExpression="ano_escolaridade"></asp:BoundField>
+                    <asp:BoundField DataField="codigo" HeaderText="Código" ReadOnly="True" InsertVisible="False" SortExpression="codigo"></asp:BoundField>
+                    <asp:BoundField DataField="nome" HeaderText="Nome" SortExpression="nome"></asp:BoundField>
+                    <asp:BoundField DataField="nr_modulos" HeaderText="Nº módulos" SortExpression="nr_modulos"></asp:BoundField>
+                    <asp:BoundField DataField="ano_escolaridade" HeaderText="Ano Escolaridade" SortExpression="ano_escolaridade"></asp:BoundField>
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource runat="server" ID="SqlDisciplinas" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' DeleteCommand="delete from disciplinas

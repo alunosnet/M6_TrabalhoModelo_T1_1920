@@ -65,7 +65,7 @@
     <!--Menu-->
     <form id="form1" runat="server">
         <div class="container">
-            Nome da disciplina a pesquisar:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Pesquisar" />
+            Nome da disciplina a pesquisar:<asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Pesquisar" CssClass="btn btn-lg btn-info" />
             <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="codigo">
                 <AlternatingItemTemplate>
                     <tr style="">
@@ -130,15 +130,15 @@
                     </tr>
                 </ItemTemplate>
                 <LayoutTemplate>
-                    <table runat="server">
+                    <table class="table" runat="server">
                         <tr runat="server">
                             <td runat="server">
-                                <table runat="server" id="itemPlaceholderContainer" style="" border="0">
+                                <table class="table" runat="server" id="itemPlaceholderContainer" style="" border="0">
                                     <tr runat="server" style="">
-                                        <th runat="server">codigo</th>
-                                        <th runat="server">nome</th>
-                                        <th runat="server">nr_modulos</th>
-                                        <th runat="server">ano_escolaridade</th>
+                                        <th runat="server">Código</th>
+                                        <th runat="server">Nome</th>
+                                        <th runat="server">Nº módulos</th>
+                                        <th runat="server">Ano Escolaridade</th>
                                     </tr>
                                     <tr runat="server" id="itemPlaceholder"></tr>
                                 </table>
