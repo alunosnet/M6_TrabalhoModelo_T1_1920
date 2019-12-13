@@ -66,7 +66,107 @@
     <form id="form1" runat="server">
         <div class="container">
             Nome da disciplina a pesquisar:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Pesquisar" />
-            <asp:ListView ID="ListView1" runat="server"></asp:ListView>
+            <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="codigo">
+                <AlternatingItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Label Text='<%# Eval("codigo") %>' runat="server" ID="codigoLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("nome") %>' runat="server" ID="nomeLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("nr_modulos") %>' runat="server" ID="nr_modulosLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeLabel" /></td>
+                    </tr>
+                </AlternatingItemTemplate>
+                <EditItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" />
+                            <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
+                        </td>
+                        <td>
+                            <asp:Label Text='<%# Eval("codigo") %>' runat="server" ID="codigoLabel1" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeTextBox" /></td>
+                    </tr>
+                </EditItemTemplate>
+                <EmptyDataTemplate>
+                    <table runat="server" style="">
+                        <tr>
+                            <td>Não foram encontrados dados.</td>
+                        </tr>
+                    </table>
+                </EmptyDataTemplate>
+                <InsertItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" />
+                            <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeTextBox" /></td>
+                    </tr>
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Label Text='<%# Eval("codigo") %>' runat="server" ID="codigoLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("nome") %>' runat="server" ID="nomeLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("nr_modulos") %>' runat="server" ID="nr_modulosLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeLabel" /></td>
+                    </tr>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <table runat="server">
+                        <tr runat="server">
+                            <td runat="server">
+                                <table runat="server" id="itemPlaceholderContainer" style="" border="0">
+                                    <tr runat="server" style="">
+                                        <th runat="server">codigo</th>
+                                        <th runat="server">nome</th>
+                                        <th runat="server">nr_modulos</th>
+                                        <th runat="server">ano_escolaridade</th>
+                                    </tr>
+                                    <tr runat="server" id="itemPlaceholder"></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr runat="server">
+                            <td runat="server" style=""></td>
+                        </tr>
+                    </table>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Label Text='<%# Eval("codigo") %>' runat="server" ID="codigoLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("nome") %>' runat="server" ID="nomeLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("nr_modulos") %>' runat="server" ID="nr_modulosLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeLabel" /></td>
+                    </tr>
+                </SelectedItemTemplate>
+            </asp:ListView>
+            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' SelectCommand="SELECT * FROM [disciplinas] WHERE ([nome] LIKE '%' + @nome + '%')">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="TextBox1" PropertyName="Text" Name="nome" Type="String"></asp:ControlParameter>
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
     <script src="/Js/jquery-3.3.1.slim.min.js"></script>

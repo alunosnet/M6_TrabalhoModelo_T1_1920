@@ -66,7 +66,49 @@
     <form id="form1" runat="server">
         <div class="container">
             <h1>Adicionar disciplina</h1>
-            <asp:FormView ID="FormView1" runat="server"></asp:FormView>
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="codigo" DataSourceID="SqlDisciplinas">
+                <EmptyDataTemplate>
+                    <asp:LinkButton runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
+                </EmptyDataTemplate>
+                <EditItemTemplate>
+                    codigo:
+                    <asp:Label Text='<%# Eval("codigo") %>' runat="server" ID="codigoLabel1" /><br />
+                    nome:
+                    <asp:TextBox Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" /><br />
+                    nr_modulos:
+                    <asp:TextBox Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosTextBox" /><br />
+                    ano_escolaridade:
+                    <asp:TextBox Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeTextBox" /><br />
+                    <asp:LinkButton runat="server" Text="Update" CommandName="Update" ID="UpdateButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" ID="UpdateCancelButton" CausesValidation="False" />
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    nome:
+                    <asp:TextBox Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" /><br />
+                    nr_modulos:
+                    <asp:TextBox Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosTextBox" /><br />
+                    ano_escolaridade:
+                    <asp:TextBox Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeTextBox" /><br />
+                    <asp:LinkButton runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    codigo:
+                    <asp:Label Text='<%# Eval("codigo") %>' runat="server" ID="codigoLabel" /><br />
+                    nome:
+                    <asp:Label Text='<%# Bind("nome") %>' runat="server" ID="nomeLabel" /><br />
+                    nr_modulos:
+                    <asp:Label Text='<%# Bind("nr_modulos") %>' runat="server" ID="nr_modulosLabel" /><br />
+                    ano_escolaridade:
+                    <asp:Label Text='<%# Bind("ano_escolaridade") %>' runat="server" ID="ano_escolaridadeLabel" /><br />
+                    <asp:LinkButton runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
+                </ItemTemplate>
+            </asp:FormView>
+            <asp:SqlDataSource runat="server" ID="SqlDisciplinas" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' InsertCommand="INSERT INTO disciplinas(nome, nr_modulos, ano_escolaridade) VALUES (@nome, @nr_modulos, @ano_escolaridade)" SelectCommand="select * from disciplinas">
+                <InsertParameters>
+                    <asp:Parameter Name="nome"></asp:Parameter>
+                    <asp:Parameter Name="nr_modulos"></asp:Parameter>
+                    <asp:Parameter Name="ano_escolaridade"></asp:Parameter>
+                </InsertParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
     <script src="/Js/jquery-3.3.1.slim.min.js"></script>
