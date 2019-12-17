@@ -1,3 +1,5 @@
+TODO: imagem nos alunos, consultas, home page, página de erros personalizada, formato das datas sem horas
+
 create table alunos(
 	nprocesso int identity primary key,
 	nome varchar(100) not null check (len(nome)>=3),

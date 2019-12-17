@@ -74,6 +74,9 @@
     <Content Include="App_Data\bd_log.ldf">
       <DependentUpon>bd.mdf</DependentUpon>
     </Content>
+    <Content Include="Consultas\media_aluno.aspx" />
+    <Content Include="Consultas\melhor_aluno.aspx" />
+    <Content Include="Consultas\nr_notas_disciplina.aspx" />
     <Content Include="CSS\bootstrap.min.css" />
     <Content Include="CSS\css.css" />
     <Content Include="Disciplinas\adicionar.aspx" />
@@ -111,6 +114,27 @@
     </Compile>
     <Compile Include="Alunos\Pesquisar.aspx.designer.cs">
       <DependentUpon>Pesquisar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\media_aluno.aspx.cs">
+      <DependentUpon>media_aluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\media_aluno.aspx.designer.cs">
+      <DependentUpon>media_aluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\melhor_aluno.aspx.cs">
+      <DependentUpon>melhor_aluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\melhor_aluno.aspx.designer.cs">
+      <DependentUpon>melhor_aluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\nr_notas_disciplina.aspx.cs">
+      <DependentUpon>nr_notas_disciplina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\nr_notas_disciplina.aspx.designer.cs">
+      <DependentUpon>nr_notas_disciplina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Disciplinas\adicionar.aspx.cs">
       <DependentUpon>adicionar.aspx</DependentUpon>
@@ -176,7 +200,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Consultas\" />
     <Folder Include="Imagens\" />
     <Folder Include="Models\" />
   </ItemGroup>
