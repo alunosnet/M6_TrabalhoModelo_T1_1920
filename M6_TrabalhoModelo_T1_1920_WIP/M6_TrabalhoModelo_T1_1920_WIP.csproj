@@ -82,6 +82,7 @@
     <Content Include="Disciplinas\adicionar.aspx" />
     <Content Include="Disciplinas\gerir.aspx" />
     <Content Include="Disciplinas\pesquisar.aspx" />
+    <Content Include="erros.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="Js\bootstrap.min.js" />
@@ -156,6 +157,13 @@
     </Compile>
     <Compile Include="Disciplinas\pesquisar.aspx.designer.cs">
       <DependentUpon>pesquisar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="erros.aspx.cs">
+      <DependentUpon>erros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="erros.aspx.designer.cs">
+      <DependentUpon>erros.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

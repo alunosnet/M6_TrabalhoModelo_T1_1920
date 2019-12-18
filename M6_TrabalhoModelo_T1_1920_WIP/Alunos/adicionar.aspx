@@ -66,7 +66,7 @@
     <form id="form1" runat="server">
         <div class="container">
             <h1>Adicionar aluno</h1>
-            <asp:FormView Width="100%" DefaultMode="Insert" ID="FormView1" runat="server" DataKeyNames="nprocesso" DataSourceID="SqlAlunos">
+            <asp:FormView OnItemInserting="FormView1_ItemInserting" Width="100%" DefaultMode="Insert" ID="FormView1" runat="server" DataKeyNames="nprocesso" DataSourceID="SqlAlunos">
                 <EditItemTemplate>
                     nprocesso:
                     <asp:Label Text='<%# Eval("nprocesso") %>' runat="server" ID="nprocessoLabel1" /><br />
@@ -106,6 +106,8 @@
                     <asp:TextBox CssClass="form-control" Text='<%# Bind("localidade") %>' runat="server" ID="localidadeTextBox" /><br />
                     Email:
                     <asp:TextBox CssClass="form-control" Text='<%# Bind("email") %>' runat="server" ID="emailTextBox" /><br />
+                    Fotografia:
+                    <asp:FileUpload CssClass=" form-control form-control-file" ID="FileUpload1" runat="server" /><br />
                     <asp:LinkButton CssClass="btn btn-lg btn-danger" runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton CssClass="btn btn-lg btn-info" runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
                 </InsertItemTemplate>
                 <ItemTemplate>
@@ -130,7 +132,8 @@
                     <asp:LinkButton runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
                 </ItemTemplate>
             </asp:FormView>
-            <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' InsertCommand="INSERT INTO alunos(nome, data_nascimento, genero, morada, cp, localidade, email) VALUES (@nome, @data_nascimento, @genero, @morada, @cp, @localidade, @email)" SelectCommand="SELECT alunos.* FROM alunos">
+            <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' 
+                InsertCommand="INSERT INTO alunos(nome, data_nascimento, genero, morada, cp, localidade, email,fotografia) VALUES (@nome, @data_nascimento, @genero, @morada, @cp, @localidade, @email,@fotografia)" SelectCommand="SELECT alunos.* FROM alunos">
                 <InsertParameters>
                     <asp:Parameter Name="nome"></asp:Parameter>
                     <asp:Parameter Name="data_nascimento" DbType="Date"></asp:Parameter>
@@ -139,6 +142,7 @@
                     <asp:Parameter Name="cp"></asp:Parameter>
                     <asp:Parameter Name="localidade"></asp:Parameter>
                     <asp:Parameter Name="email"></asp:Parameter>
+                     <asp:Parameter Name="fotografia"></asp:Parameter>
                 </InsertParameters>
             </asp:SqlDataSource>
         </div>

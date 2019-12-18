@@ -65,6 +65,14 @@
     <!--Menu-->
     <form id="form1" runat="server">
         <div class="container">
+            <h1>Média por aluno</h1>
+            <asp:GridView CssClass="table" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
+                    <asp:BoundField DataField="M&#233;dia" HeaderText="M&#233;dia" ReadOnly="True" SortExpression="M&#233;dia"></asp:BoundField>
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' SelectCommand="SELECT alunos.nome, AVG(notas.nota) AS Média FROM alunos INNER JOIN notas ON alunos.nprocesso = notas.nprocesso GROUP BY notas.nprocesso, alunos.nome"></asp:SqlDataSource>
         </div>
     </form>
     <script src="/Js/jquery-3.3.1.slim.min.js"></script>

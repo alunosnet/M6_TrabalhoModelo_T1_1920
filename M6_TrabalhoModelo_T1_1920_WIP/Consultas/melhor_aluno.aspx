@@ -65,6 +65,13 @@
     <!--Menu-->
     <form id="form1" runat="server">
         <div class="container">
+            <h1>Aluno com melhor média</h1>
+            <asp:GridView CssClass="table" ID="gv" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' SelectCommand="SELECT TOP (1) alunos.nome FROM alunos INNER JOIN notas ON alunos.nprocesso = notas.nprocesso GROUP BY notas.nprocesso, alunos.nome ORDER BY AVG(notas.nota) DESC"></asp:SqlDataSource>
         </div>
     </form>
     <script src="/Js/jquery-3.3.1.slim.min.js"></script>

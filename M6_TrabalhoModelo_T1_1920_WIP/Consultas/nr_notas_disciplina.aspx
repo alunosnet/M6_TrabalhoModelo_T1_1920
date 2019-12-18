@@ -65,6 +65,14 @@
     <!--Menu-->
     <form id="form1" runat="server">
         <div class="container">
+            <h1>Nº de notas por disciplina</h1>
+            <asp:GridView CssClass="table" ID="gv" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
+                    <asp:BoundField DataField="Nr de notas" HeaderText="Nr de notas" ReadOnly="True" SortExpression="Nr de notas"></asp:BoundField>
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' SelectCommand="SELECT disciplinas.nome, COUNT(*) AS [Nr de notas] FROM disciplinas INNER JOIN notas ON disciplinas.codigo = notas.codigo_disciplina GROUP BY notas.codigo_disciplina, disciplinas.nome"></asp:SqlDataSource>
         </div>
     </form>
     <script src="/Js/jquery-3.3.1.slim.min.js"></script>

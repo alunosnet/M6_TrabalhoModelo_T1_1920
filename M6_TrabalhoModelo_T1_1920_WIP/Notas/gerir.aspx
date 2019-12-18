@@ -65,6 +65,7 @@
     <!--Menu-->
     <form id="form1" runat="server">
         <div class="container">
+            <h1>Gerir notas</h1>
             <asp:GridView CssClass="table" runat="server" ID="GV1" AutoGenerateColumns="False" DataKeyNames="nr_nota" DataSourceID="SqlNotas" AllowSorting="True" AllowPaging="True">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"></asp:CommandField>

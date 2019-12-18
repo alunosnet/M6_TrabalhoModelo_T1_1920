@@ -66,7 +66,7 @@
     <form id="form1" runat="server">
         <div class="container">
             <h1>Gerir Alunos</h1>
-            <asp:GridView CssClass="table" PageSize="20" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="nprocesso" DataSourceID="SqlAlunos" AllowPaging="True" AllowSorting="True">
+            <asp:GridView OnRowDataBound="GridView1_RowDataBound" CssClass="table" PageSize="20" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="nprocesso" DataSourceID="SqlAlunos" AllowPaging="True" AllowSorting="True">
                 <Columns>
                     <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"></asp:CommandField>
                     <asp:BoundField DataField="nprocesso" HeaderText="Nº processo" ReadOnly="True" InsertVisible="False" SortExpression="nprocesso"></asp:BoundField>
@@ -77,6 +77,11 @@
                     <asp:BoundField DataField="cp" HeaderText="Cód Postal" SortExpression="cp"></asp:BoundField>
                     <asp:BoundField DataField="localidade" HeaderText="Localidade" SortExpression="localidade"></asp:BoundField>
                     <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email"></asp:BoundField>
+                    <asp:TemplateField HeaderText="Fotografia">
+                        <ItemTemplate>
+                            <asp:Image ID="fotografia" runat="server" Width="200px" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionStringTrabalhoModelo %>' DeleteCommand="DELETE FROM alunos WHERE (nprocesso = @nprocesso)" SelectCommand="select * from alunos" UpdateCommand="UPDATE alunos SET nome = @nome, data_nascimento = @data_nascimento, genero = @genero, morada = @morada, cp = @cp, localidade = @localidade, email = @email WHERE (nprocesso = @nprocesso)">
